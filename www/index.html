@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html id="particles">
+    <head>
+        <meta  content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewphonegapport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+        <title>Hello World</title>
+    </head>
+    <body>
+        <script id="home-tpl" type="text/template">
+            <div class="container">
+                <div style="margin-top:60%" class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="">MY MOVIES</h2>
+                    </div>
+                </div>
+                <div style="margin-top:20px" class="row">
+                    <div class="col-12 text-center">
+                        <button id="signUp" class="btn btn-lg btn-width">SIGN UP</button>
+                    </div>
+                </div>
+                <div style="margin-top:20px" class="row">
+                    <div class="col-12 text-center">
+                        <button id="signIn" class="btn btn-lg btn-width">SIGN IN</button>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script id="sign-up" type="text/template">
+
+        </script>
+
+        <script id="sign-in" type="text/template">
+
+        </script>
+
+       <script id="res-tpl" type="text/template">
+        <header>
+            <i id="home" class="material-icons home">
+                keyboard_backspace
+                </i>
+        </header>
+       <p class="res">
+           <h1 class="main-text2">Temperature(F)</h1>
+           <h1 id="degree"></h1>
+           <table>
+               <tr>
+                <td class="left">
+                    City
+                </td>
+                <td id="city" class="right">
+                </td>
+               </tr>
+               <tr>
+                <td class="left">
+                    Humidity
+                </td>
+                <td id="humidity" class="right">
+                </td>
+               </tr>
+               <tr>
+                <td class="left">
+                    Wind Speed
+                </td>
+                <td id="wind" class="right">
+                </td>
+               </tr>
+           </table>
+       </p>
+    
+        <input max="5"  placeholder="ZipCode" class='search-key' type="search"/>
+        <p id="alert"></p>
+        <button class="searchagain suit_and_tie">Find My Weather!</button>
+        <div class="bottom">
+            <p >Merkure Latortue</p>
+            <p >Z23458563</p>
+        </div>
+       </script>
+      
+
+
+       <script src="lib/handlebars.js"></script>
+       <script src="lib/jquery.js"></script>
+       <script src="js/app.js"></script>
+    </body>
+</html>
