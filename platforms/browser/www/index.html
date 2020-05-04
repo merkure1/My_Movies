@@ -34,11 +34,93 @@
         </script>
 
         <script id="sign-up" type="text/template">
-
+            <div class="container text-center">
+                <div style="margin-top:40%"  class="row">
+                    <div class="col-12">
+                        <h2>SIGN UP</h2>
+                    </div>
+                </div>
+                <div style="margin-top:20px" class="row">
+                    <div class="col-12">
+                        <input class="btn-width" placeholder="EMAIL" type="text" name="" id="">
+                    </div>
+                </div>
+                <div style="margin-top:20px" class="row">
+                    <div class="col-12">
+                        <input class="btn-width" placeholder="USERNAME" type="text" name="" id="">
+                    </div>
+                </div>
+                <div style="margin-top:20px" class="row">
+                    <div class="col-12">
+                        <input class="btn-width" placeholder="PASSWORD" type="text" name="" id="">
+                    </div>
+                </div>
+                <div style="margin-top:20px" class="row">
+                    <div class="col-12">
+                        <input class="btn-width" placeholder="RE-ENTER PASSWORD" type="text" name="" id="">
+                    </div>
+                </div>
+                <div style="margin-top:25px" class="row">
+                    <div class="col-12">
+                        <button id="register" class="btn btn-lg btn-width">SIGN UP</button>
+                    </div>
+                </div>
+            </div>
+           
         </script>
 
         <script id="sign-in" type="text/template">
+            <div class="container text-center">
+                <div style="margin-top:40%"  class="row">
+                    <div class="col-12">
+                        <h2>SIGN IN</h2>
+                    </div>
+                </div>
+                <form action="/auth.php" method="post">
+                    <div style="margin-top:20px" class="row">
+                        <div class="col-12">
+                            <input class="btn-width" placeholder="USERNAME" type="text" name="username" id="">
+                        </div>
+                    </div>
+                    <div style="margin-top:20px" class="row">
+                        <div class="col-12">
+                            <input type="password" class="btn-width" placeholder="PASSWORD" type="text" name="password" id="">
+                        </div>
+                    </div>
+                    <!-- <div style="margin-top:10px" class="row">
+                        <div class="col-12">
+                            <a id="fPass"><p>Forgot Password</p></a>
+                        </div>
+                    </div> -->
+                    <div style="margin-top:25px" class="row">
+                        <div class="col-12">
+                            <input value="SUBMIT" type="submit" id="register" class="btn btn-lg btn-width">
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </script>
 
+
+        <script id="forgot-p" type="text/template">
+            <div class="container text-center">
+                <div style="margin-top:40%"  class="row">
+                    <div class="col-12">
+                        <h2>FORGOT PASSWORD</h2>
+                    </div>
+                </div>
+                <div style="margin-top:20px" class="row">
+                    <div class="col-12">
+                        <input class="btn-width" placeholder="EMAIL" type="text" name="" id="e-fp">
+                    </div>
+                </div>
+                <div style="margin-top:25px" class="row">
+                    <div class="col-12">
+                        <button id="fPass-send" class="btn btn-lg btn-width">SEND</button>
+                    </div>
+                </div>
+            </div>
         </script>
 
        <script id="res-tpl" type="text/template">

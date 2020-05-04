@@ -3,7 +3,9 @@
 
     var homeTpl = Handlebars.compile($("#home-tpl").html());
     var signUpTpl = Handlebars.compile($("#sign-up").html());
-    var signInTpl = Handlebars.compile($("#sign-in").html());
+    var signInTpl = Handlebars.compile($("#sign-in").html());  
+    var fPassTpl = Handlebars.compile($("#forgot-p").html());
+
     // var weatherTpl = Handlebars.compile($("#res-tpl").html());
     // var apiKey = "cdd70e83a64029a85bb5d6a7bb08b3d1"
     
@@ -34,6 +36,7 @@
 
         });
         
+       
     }
 
     // function renderSearchView(zip) {
@@ -73,14 +76,20 @@
 
     function renderSignInView(){
         $('body').html(signInTpl());
+        $('#fPass').on('click',function(){
+            renderForgotPassView();
+        });
     }
 
     function renderSignUpView(){
         $('body').html(signUpTpl());
     }
 
+    
 
-
+    function renderForgotPassView(){
+        $('body').html(fPassTpl());
+    }
    
 
 
