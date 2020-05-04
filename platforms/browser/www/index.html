@@ -7,9 +7,6 @@
         <meta name="viewphonegapport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
         <title>Hello World</title>
     </head>
     <body>
@@ -76,7 +73,25 @@
                         <h2>SIGN IN</h2>
                     </div>
                 </div>
-                <form action="/auth.php" method="post">
+
+                <!-- <div id="login_form">
+                    <h1>LOGIN FORM</h1>
+                    <p id="login_label">Email : demo@demo.com | Password : demo</p>
+                    <form>
+                     <input type="text" name="username" id="username" placeholder="Enter username">
+                     <br>
+                     <input type="password" name="password" id="password" placeholder="***********">
+                     <br>
+                     <input type="submit" name="login" value="LOGIN" id="login_button">
+                    </form>
+                   </div> -->
+
+                <!-- <form action="" method="post" style="text-align:center;">
+                    <input type="text" placeholder="Username" id="user" name="user"><br/><br/>
+                    <input type="password" placeholder="Password" id="pass" name="pass"><br/><br/>
+                    <input id="login_submit" type="submit" value="Login" name="submit">
+                </form> -->
+                <form action="js/auth.php" method="POST">
                     <div style="margin-top:20px" class="row">
                         <div class="col-12">
                             <input class="btn-width" placeholder="USERNAME" type="text" name="username" id="">
@@ -84,14 +99,14 @@
                     </div>
                     <div style="margin-top:20px" class="row">
                         <div class="col-12">
-                            <input type="password" class="btn-width" placeholder="PASSWORD" type="text" name="password" id="">
+                            <input type="text" class="btn-width" placeholder="PASSWORD" type="text" name="password" id="">
                         </div>
                     </div>
-                    <!-- <div style="margin-top:10px" class="row">
+                    <div style="margin-top:10px" class="row">
                         <div class="col-12">
                             <a id="fPass"><p>Forgot Password</p></a>
                         </div>
-                    </div> -->
+                    </div>
                     <div style="margin-top:25px" class="row">
                         <div class="col-12">
                             <input value="SUBMIT" type="submit" id="register" class="btn btn-lg btn-width">
@@ -123,48 +138,56 @@
             </div>
         </script>
 
-       <script id="res-tpl" type="text/template">
-        <header>
-            <i id="home" class="material-icons home">
-                keyboard_backspace
-                </i>
-        </header>
-       <p class="res">
-           <h1 class="main-text2">Temperature(F)</h1>
-           <h1 id="degree"></h1>
-           <table>
-               <tr>
-                <td class="left">
-                    City
-                </td>
-                <td id="city" class="right">
-                </td>
-               </tr>
-               <tr>
-                <td class="left">
-                    Humidity
-                </td>
-                <td id="humidity" class="right">
-                </td>
-               </tr>
-               <tr>
-                <td class="left">
-                    Wind Speed
-                </td>
-                <td id="wind" class="right">
-                </td>
-               </tr>
-           </table>
-       </p>
-    
-        <input max="5"  placeholder="ZipCode" class='search-key' type="search"/>
-        <p id="alert"></p>
-        <button class="searchagain suit_and_tie">Find My Weather!</button>
-        <div class="bottom">
-            <p >Merkure Latortue</p>
-            <p >Z23458563</p>
-        </div>
-       </script>
+
+        <script id="main" type="text/template">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-12">
+                        <button id="favs_button" class="btn float-left">Favorites</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input class="btn-width" type="text">
+                    </div>
+                </div>
+                <div style="margin-top:-2px;" class="row">
+                    <div class="col-12">
+                        <button class="btn-width" type="text">Search</button>
+                    </div>
+                </div>
+                <div style="margin-top:10px padding:0px 15px 0px 15px" class="row">
+                    <div class="col-12">
+                        <ul>
+                            <li id="results">
+                            </li>
+                        </ul> 
+                    </div>
+                </div>
+               
+            </div>
+           
+        </script>
+
+        <script id="favs" type="text/template">
+            <div class="container text-center">
+                <div style="margin-top:10px" class="row">
+                    <div class="col-12">
+                        <h2>My Favorites</h2>
+                     </div>
+                </div>
+                <div style="margin-top:10px" class="row">
+                    <div class="col-6">
+                       <p>Movie Title</p>
+                    </div>
+                    <div class="col-6">
+                        <button id="rm-fav" class="btn-width" type="text">Remove Favorite</button>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+      
       
 
 
