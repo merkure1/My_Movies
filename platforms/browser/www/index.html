@@ -7,6 +7,8 @@
         <meta name="viewphonegapport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
         <title>Hello World</title>
     </head>
     <body>
@@ -44,12 +46,12 @@
                 </div>
                 <div style="margin-top:20px" class="row">
                     <div class="col-12">
-                        <input class="btn-width" placeholder="USERNAME" type="text" name="" id="">
+                        <input class="btn-width" placeholder="USERNAME" type="text" name="s_username" id="">
                     </div>
                 </div>
                 <div style="margin-top:20px" class="row">
                     <div class="col-12">
-                        <input class="btn-width" placeholder="PASSWORD" type="text" name="" id="">
+                        <input class="btn-width" placeholder="PASSWORD" type="text" name="s_password" id="">
                     </div>
                 </div>
                 <div style="margin-top:20px" class="row">
@@ -91,15 +93,17 @@
                     <input type="password" placeholder="Password" id="pass" name="pass"><br/><br/>
                     <input id="login_submit" type="submit" value="Login" name="submit">
                 </form> -->
-                <form action="js/auth.php" method="POST">
+
+
+                <form>
                     <div style="margin-top:20px" class="row">
                         <div class="col-12">
-                            <input class="btn-width" placeholder="USERNAME" type="text" name="username" id="">
+                            <input class="btn-width" placeholder="USERNAME" type="text" name="username" id="username">
                         </div>
                     </div>
                     <div style="margin-top:20px" class="row">
                         <div class="col-12">
-                            <input type="text" class="btn-width" placeholder="PASSWORD" type="text" name="password" id="">
+                            <input type="text" class="btn-width" placeholder="PASSWORD" type="text" name="password" id="password">
                         </div>
                     </div>
                     <div style="margin-top:10px" class="row">
@@ -109,10 +113,28 @@
                     </div>
                     <div style="margin-top:25px" class="row">
                         <div class="col-12">
-                            <input value="SUBMIT" type="submit" id="register" class="btn btn-lg btn-width">
+                            <input value="Submit" type="submit" id="sign_in" class="btn btn-lg btn-width">
                         </div>
                     </div>
                 </form>
+
+                <!-- <div class="padding" >
+                    <label class="item-input">
+                        <span class="input-label">Email</span>
+                        <input type="email" placeholder="email@domain.com" id="email">
+                    </label>
+                    <label class="item-input">
+                        <span class="input-label">Password</span>
+                        <input type="password" placeholder="password" id="password">
+                    </label>
+                    <label class="item-input">
+                        <span class="input-label"></span>
+                        <a href="" class="button button-clear button-royal">Forget Password ?</a>
+                    </label>
+                    <label class="item-input">
+                        <button class="button button-block button-positive" id="login">Login</button>
+                    </label>
+                </div> -->
                 
             </div>
         </script>
@@ -140,25 +162,29 @@
 
 
         <script id="main" type="text/template">
-            <div class="container text-center">
+            <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <button id="favs_button" class="btn float-left">Favorites</button>
+                    <div class="col-xs-6 text-left">
+                        <button id="favs_b" class="btn btn-link">Favorites</button>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <button id="sign-out" class="btn btn-link">Sign-out</button>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <input class="btn-width" type="text">
+                    <div class="col-12 text-center">
+                        <input id="searchBox" class="btn-width" type="text">
                     </div>
                 </div>
-                <div style="margin-top:-2px;" class="row">
-                    <div class="col-12">
-                        <button class="btn-width" type="text">Search</button>
+                <div style="margin-top: 5px;" class="row">
+                    <div class="col-12 text-center">
+                        <button class="btn-width" type="text" id="searchBtn">Search</button>
                     </div>
                 </div>
                 <div style="margin-top:10px padding:0px 15px 0px 15px" class="row">
                     <div class="col-12">
-                        <ul>
+                        <h4 class="text-center">20 Random Movies</h4>
+                        <ul style="list-style: none; margin-top:25px; font-weight:400; font-size:18px">
                             <li id="results">
                             </li>
                         </ul> 
@@ -177,11 +203,11 @@
                      </div>
                 </div>
                 <div style="margin-top:10px" class="row">
-                    <div class="col-6">
+                    <div class="col-xs-6">
                        <p>Movie Title</p>
                     </div>
-                    <div class="col-6">
-                        <button id="rm-fav" class="btn-width" type="text">Remove Favorite</button>
+                    <div class="col-xs-6">
+                        <button id="rm-fav" class=" text-center" type="text">Remove Favorite</button>
                     </div>
                 </div>
             </div>

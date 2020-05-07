@@ -1,100 +1,88 @@
-<!-- 
-//  include("./config.php");
-
-// if(isset($_POST['register']))
-// {   
-//     $register = mysqli_num_rows(mysqli_query($con, "SELECT * FROM `Account` WHERE `user` ='$user'"));
-//     if($register == 0)
-//     {
-//         $insert = mysqli_query($con,"INSERT INTO `Account` ( `user` , `pass` , `email` ) VALUES ('$user','$password','$email')");
-//         if($insert)
-//             echo "success";
-//         else
-//             echo "error";
-//     }
-//     else if($register != 0)
-//         echo "exist";
-// }
-
-// if($_SERVER["REQUEST_METHOD"] == "POST")
-// {
-//     $myusername = mysqli_real_escape_string($db,$_POST['username']);
-//     $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-
-//     $login = mysqli_num_rows(mysqli_query($con, "SELECT * FROM `Account` WHERE `user` ='$myusername' AND `pass` ='$mypassword'"));
-//     if($login != 0)
-//         echo "success";
-//     else
-//         echo "error";
-// }
-
-$error=''; //Variable to Store error message;
-if(isset($_POST['submit'])){
- if(empty($_POST['user']) || empty($_POST['pass'])){
- alert("Username or Password is Invalid");
- }
- else
- {
- //Define $user and $pass
- $user=$_POST['user'];
- $pass=$_POST['pass'];
- //Establishing Connection with server by passing server_name, user_id and pass as a patameter
- $conn = mysqli_connect("mlatortue2018@lamp.cse.fau.edu'", "mlatortue2018", "MeuP9STKrM");
- //Selecting Database
- $db = mysqli_select_db($conn, "mlatortue2018");
- //sql query to fetch information of registerd user and finds user match.
- $query = mysqli_query($conn, "SELECT * FROM Account WHERE pass='$pass' AND user='$user'");
- 
- $rows = mysqli_num_rows($query);
- if($rows == 1){
- header("Location: welcome.php"); // Redirecting to other page
- }
- else
- {
- $error = "Username of Password is Invalid";
- }
- mysqli_close($conn); // Closing connection
- }
-}
-
- -->
- 
-<!-- $servername = "mlatortue2018@lamp.cse.fau.edu";
-$username = "mlatortue2018";
-$password = "MeuP9STKrM";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully"; -->
-
 <?php
-// session_start();
-if(isset($_POST['do_login']))
-{
- $host="mlatortue2018@lamp.cse.fau.edu";
- $username="mlatortue2018";
- $password="MeuP9STKrM";
- $databasename="mlatortue2018";
- $connect=mysql_connect($host,$username,$password);
- $db=mysql_select_db($databasename);
+// header("Access-Control-Allow-Origin: *");
 
- $user=$_POST['username'];
- $pass=$_POST['password'];
- $select_data=mysql_query("select * from user where user='$user' and pass='$pass'");
- if($row=mysql_fetch_array($select_data))
- {
-//   $_SESSION['email']=$row['email'];
-  echo "success";
- }
- else
- {
-  echo "fail";
- }
- exit();
+//Connect & Select Database
+mysql_connect("mlatortue2018@lamp.cse.fau.edu", "mlatortue2018", "MeuP9STKrM") or die("could not connect server");
+mysql_select_db("mlatortue2018") or die("could not connect database");
+
+//Create New Account
+if(isset($_POST['signup']))
+{
+	$fullname=mysql_real_escape_string(htmlspecialchars(trim($_POST['fullname'])));
+	$email=mysql_real_escape_string(htmlspecialchars(trim($_POST['email'])));
+	$password=mysql_real_escape_string(htmlspecialchars(trim($_POST['password'])));
+	$login=mysql_num_rows(mysql_query("select * from `phonegap_login` where `email`='$email'"));
+	if($login!=0)
+	{
+		echo "exist";
+	}
+	else
+	{
+		$date=date("d-m-y h:i:s");
+		$q=mysql_query("insert into `phonegap_login` (`reg_date`,`fullname`,`email`,`password`) values ('$date','$fullname','$email','$password')");
+		if($q)
+		{
+			echo "success";
+		}
+		else
+		{
+			echo "failed";
+		}
+	}
+	echo mysql_error();
 }
+
+//Login
+if(isset($_POST['login']))
+{
+	$email=mysql_real_escape_string(htmlspecialchars(trim($_POST['email'])));
+	$password=mysql_real_escape_string(htmlspecialchars(trim($_POST['password'])));
+	$login=mysql_num_rows(mysql_query("select * from `Account` where `email`='$email' and `pass='$password'"));
+	if($login!=0)
+	{
+		echo "success";
+	}
+	else
+	{
+		echo "failed";
+	}
+}
+
+//Change Password
+if(isset($_POST['change_password']))
+{
+	$email=mysql_real_escape_string(htmlspecialchars(trim($_POST['email'])));
+	$old_password=mysql_real_escape_string(htmlspecialchars(trim($_POST['old_password'])));
+	$new_password=mysql_real_escape_string(htmlspecialchars(trim($_POST['new_password'])));
+	$check=mysql_num_rows(mysql_query("select * from `phonegap_login` where `email`='$email' and `password`='$old_password'"));
+	if($check!=0)
+	{
+		mysql_query("update `phonegap_login` set `password`='$new_password' where `email`='$email'");
+		echo "success";
+	}
+	else
+	{
+		echo "incorrect";
+	}
+}
+
+// Forget Password
+if(isset($_POST['forget_password']))
+{
+	$email=mysql_real_escape_string(htmlspecialchars(trim($_POST['email'])));
+	$q=mysql_query("select * from `phonegap_login` where `email`='$email'");
+	$check=mysql_num_rows($q);
+	if($check!=0)
+	{
+		echo "success";
+		$data=mysql_fetch_array($q);
+		$string="Hey,".$data['fullname'].", Your password is".$data['password'];
+		mail($email, "Your Password", $string);
+	}
+	else
+	{
+		echo "invalid";
+	}
+}
+
 ?>
