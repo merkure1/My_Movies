@@ -40,10 +40,21 @@
 
         });
 
+        $('#back-3').on('click',function(){
+            renderHomeView();
+
+        });
+
+        
+
     }
 
     function renderSignUpView(){
         $('body').html(signUpTpl());
+        $('#back-4').on('click',function(){
+            renderHomeView();
+
+        });
     }
 
     
