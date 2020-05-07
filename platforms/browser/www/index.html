@@ -8,6 +8,8 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
 
         <title>Hello World</title>
     </head>
@@ -76,25 +78,6 @@
                     </div>
                 </div>
 
-                <!-- <div id="login_form">
-                    <h1>LOGIN FORM</h1>
-                    <p id="login_label">Email : demo@demo.com | Password : demo</p>
-                    <form>
-                     <input type="text" name="username" id="username" placeholder="Enter username">
-                     <br>
-                     <input type="password" name="password" id="password" placeholder="***********">
-                     <br>
-                     <input type="submit" name="login" value="LOGIN" id="login_button">
-                    </form>
-                   </div> -->
-
-                <!-- <form action="" method="post" style="text-align:center;">
-                    <input type="text" placeholder="Username" id="user" name="user"><br/><br/>
-                    <input type="password" placeholder="Password" id="pass" name="pass"><br/><br/>
-                    <input id="login_submit" type="submit" value="Login" name="submit">
-                </form> -->
-
-
                 <form>
                     <div style="margin-top:20px" class="row">
                         <div class="col-12">
@@ -118,24 +101,6 @@
                     </div>
                 </form>
 
-                <!-- <div class="padding" >
-                    <label class="item-input">
-                        <span class="input-label">Email</span>
-                        <input type="email" placeholder="email@domain.com" id="email">
-                    </label>
-                    <label class="item-input">
-                        <span class="input-label">Password</span>
-                        <input type="password" placeholder="password" id="password">
-                    </label>
-                    <label class="item-input">
-                        <span class="input-label"></span>
-                        <a href="" class="button button-clear button-royal">Forget Password ?</a>
-                    </label>
-                    <label class="item-input">
-                        <button class="button button-block button-positive" id="login">Login</button>
-                    </label>
-                </div> -->
-                
             </div>
         </script>
 
@@ -183,12 +148,12 @@
                 </div>
                 <div style="margin-top:10px padding:0px 15px 0px 15px" class="row">
                     <div class="col-12">
-                        <h4 class="text-center">20 Random Movies</h4>
-                        <ul style="list-style: none; margin-top:25px; font-weight:400; font-size:18px">
-                            <li id="results">
+                        <ul id="results" style="list-style: none; margin-top:25px; font-weight:400; font-size:18px">
+                            <h4 class="text-center">20 Random Movies</h4>
+                            <li class="dynamic-link">
                             </li>
                         </ul> 
-                    </div>
+                    </div> 
                 </div>
                
             </div>
@@ -196,6 +161,11 @@
         </script>
 
         <script id="favs" type="text/template">
+            <header>
+                <i id="back-1" class="material-icons home">
+                    keyboard_backspace
+                    </i>
+            </header>
             <div class="container text-center">
                 <div style="margin-top:10px" class="row">
                     <div class="col-12">
@@ -203,13 +173,65 @@
                      </div>
                 </div>
                 <div style="margin-top:10px" class="row">
-                    <div class="col-xs-6">
-                       <p>Movie Title</p>
-                    </div>
-                    <div class="col-xs-6">
-                        <button id="rm-fav" class=" text-center" type="text">Remove Favorite</button>
+                    <div class="col-12 text-center">
+                        <ul style="list-style: none;" id="fav-m">
+                            <li></li>
+                        </ul>
                     </div>
                 </div>
+            </div>
+        </script>
+
+        <script id="info" type="text/template">
+            <header>
+                <i id="back-2" class="material-icons home">
+                    keyboard_backspace
+                    </i>
+            </header>
+            <div class="container text-center">
+                <div style="margin-top:10px" class="row">
+                    <div class="col-12">
+                        <h2 id="movie-t"> </h2>
+                     </div>
+                </div>
+                <div style="margin-top:2px" class="row">
+                    <div class="col-12">
+                        <h2 id="movie-y"> </h2>
+                     </div>
+                </div>
+                <div style="margin-top:2px" class="row">
+                    <div class="col-12">
+                        <div id="movie-p"></div>
+                     </div>
+                </div>
+                <div style="margin-top:10px" class="row">
+                    <div class="col-xs-6 text-right">
+                        <p>Directors</p>
+                     </div>
+                    <div class="col-xs-6 text-left">
+                        <div id="movie-dir"> </div>
+                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 text-right">
+                        <p>Actors</p>
+                     </div>
+                    <div class="col-xs-6 text-left">
+                        <div id="movie-act"> </div>
+                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 text-right">
+                        <p>IMDb Rating</p>
+                     </div>
+                    <div class="col-xs-6 text-left">
+                        <div style="margin-left:10px;" id="movie-r"> </div>
+                     </div>
+                </div>
+
+                <span id="add-fav" class="material-icons">
+                    thumb_up
+                    </span>
             </div>
         </script>
 
